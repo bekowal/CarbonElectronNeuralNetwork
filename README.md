@@ -1,7 +1,7 @@
 -----
 # Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods
 
-see [arxiv paper](https://arxiv.org/abs/2312.xxxxx)
+* [arXiv:2312.xxxxx](https://arxiv.org/abs/2312.xxxxx)
 
 ## Introduction
 
