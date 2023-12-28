@@ -16,7 +16,7 @@ We introduce the deep neural network fits to inclusive electron-carbon scatterin
 
 To run the model:
 * Install numpy, jax and flax packages
-* to make model A predictions for electron energy $E$ (in GeVs), scattering angle $\theta$ (in degrees), and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$  (in GeVs), number of points $p$, number of variants of the neural network $v\in [1,50] $,
+* to make model A predictions for electron energy $E$ [GeV], scattering angle $\theta$ [degree], and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$ [GeV], number of points $p$, number of variants of the neural network $v\in [1,50] $,
     execute 
   ```
   $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v clones
@@ -30,9 +30,9 @@ To run the model:
 
 * the output is saved in the directory Results_Clones/Results_Dropout directory respectively.
 * the output is in the format .txt file with three columns:
-  * energy transfer value [GeV]
-  * mean value and standard deviation of the $v$ variants of the neural network prediction $d^2\sigma/d\omega/d\Omega$ [nb/sr/GeV]
-  * standard deviation of the $v$ variants of the neural network prediction $d^2\sigma/d\omega/d\Omega$ [nb/sr/GeV]
+  * energy transfer value [GeV],
+  * cross section $d^2\sigma/d\omega/d\Omega$ [nb/sr/GeV] - a mean value of the $v$ variants of the neural network predictions,
+  * uncertainty [nb/sr/GeV] - a standard deviation of the $v$ variants of the neural network predictions.
 
 
 ## Citation
