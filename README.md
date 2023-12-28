@@ -21,12 +21,12 @@ To run the model:
   ```
   $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v clones
   ```
-* to make model B predictions for electron energy $E$ (in GeVs), scattering angle $\theta$ (in degrees), and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$  (in GeVs), number of points $p$, number of variants of the neural network $v \geq 1 $,
+* to make model B predictions for electron energy $E$ [GeV], scattering angle $\theta$ [degree], and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$ [GeV], number of points $p$, number of variants of the neural network $v \geq 1 $,
     execute 
   ```
   $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v dropout
   ```
-* when one executes  `main.py clones` or `main.py dropout` it corresponds to $E=0.68$ GeV, $theta=60^{\circ}$, $\omega \in [0,0.68]$ GeV, number of points $p=100$, number of variants of the neural network $v=50$
+* when one executes  `main.py clones` or `main.py dropout` it corresponds to $E=0.68$ GeV, $\theta=60^{\circ}$, $\omega \in [0,0.68]$ GeV, number of points $p=100$, number of variants of the neural network $v=50$
 
 * the output is saved in the directory Results_Clones/Results_Dropout directory respectively.
 * the output is in the format .txt file with three columns:
