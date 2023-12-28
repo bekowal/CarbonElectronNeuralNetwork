@@ -188,7 +188,7 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
     ax.set_xlabel(r'$\omega [GeV]$', fontsize=6)
     ax.set_ylim(bottom=0) 
     f.tight_layout()
-    output_file_name="ClonesModel_energy="+str(energy)+"theta="+str(theta)+"dropout="+str(drop)
+    output_file_name="ClonesModel_energy="+str(energy)+"theta="+str(theta)
     output_file_name= output_file_name.replace(".", "_").lower()
     plt.savefig(os.path.join(resulsdir,output_file_name+".eps"), format='eps')
     full_array = np.stack([energy_transfer_array, mean_array, std_array], axis=1)
