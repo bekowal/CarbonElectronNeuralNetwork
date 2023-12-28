@@ -15,7 +15,7 @@ We introduce the deep neural network fits to inclusive electron-carbon scatterin
 ## Making Predictions 
 
 To run the model:
-* Install numpy, jax packages ()
+* Install numpy, jax and flax packages
 * to make model A predictions for electron energy $E$ (in GeVs), scattering angle $\theta$ (in degrees), and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$  (in GeVs), number of points $p$, number of variants of the neural network $v\in [1,50] $,
     execute 
   ```
