@@ -25,7 +25,7 @@ To run the model:
 
 * the model's outpu is in the format: xxx ??? ???
 
-## Cite
+## Citation
     @article{Kowal:2023,
     author = "Kowal, Beata E. and Graczyk, Krzysztof M. and Ankowski, Artur M. and Banerjee, Rwik Dharmapal and Prasad, Hemant and Sobczyk, Jan T.",
     title = "{Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods}",
