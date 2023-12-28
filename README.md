@@ -28,7 +28,8 @@ To run the model:
   ```
 * when one executes  `main.py clones` or `main.py dropout` it corresponds to $E=0.68$ GeV, $theta=60^{\circ}$, $\omega \in [0,0.68]$ GeV, number of points $p=100$, number of variants of the neural network $v=50$
 
-* the output is in the format .txt file with three columns: energy transfer value, mean value and standard deviation of the $v$ variants of the neural network 
+* the output is saved in the directory Results_Clones/Results_Dropout directory respectively.
+* the output is in the format .txt file with three columns: energy transfer value [GeV], mean value and standard deviation of the $v$ variants of the neural network [nb/sr/GeV]
 
 
 ## Citation
