@@ -15,7 +15,7 @@ We introduce the deep neural network fits to inclusive electron-carbon scatterin
 ## Making Predictions
 
 To run the model:
-* Install jax package ()
+* Install numpy, jax packages ()
 * to make model A predictions for electron energy E, scattering angle theta, and zzz.
     execute `xxx yyy zzz`
 * to make model B predictions for electron energy E, scattering angle theta, and zzz.
