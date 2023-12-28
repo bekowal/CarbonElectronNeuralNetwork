@@ -1,11 +1,12 @@
+import sys 
+import os   
 import jax
 import numpy as np
-import sys    
 import flax.linen as nn   
 from flax.training import train_state, checkpoints 
-import os
 import matplotlib.pyplot as plt 
 from pathlib import Path   
+ 
 
 
 def Scaling(en,th): 
@@ -132,7 +133,7 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
         dim_output=OutputSize, 
         dropout_rate=0.0)  
     
-    dir_name="Results_Clones  
+    dir_name="Results_Clones"  
     resulsdir = os.path.join(parent_dir, dir_name)
     if not os.path.exists(resulsdir):
         os.makedirs(resulsdir)    
