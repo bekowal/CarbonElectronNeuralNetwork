@@ -44,4 +44,6 @@ To run the model:
     primaryClass = "nucl-ex",
     month = "12",
     year = "2023"}
-   
+
+## Supplemental Material
+* [suplemental_material.pdf](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
