@@ -12,18 +12,24 @@ We introduce the deep neural network fits to inclusive electron-carbon scatterin
 * Model B:
     It is a single neural network with dropout layers. The Monte Carlo dropout mechanism is used to make predictions.
 
-## Making Predictions
+## Making Predictions 
 
 To run the model:
 * Install numpy, jax packages ()
-* to make model A predictions for electron energy E, scattering angle theta, and zzz.
-    execute `xxx yyy zzz`
-* to make model B predictions for electron energy E, scattering angle theta, and zzz.
-    execute `main.py yyy zzz`
+* to make model A predictions for electron energy $E$ (in GeVs), scattering angle $\theta$ (in degrees), and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$  (in GeVs), number of points $p$, number of variants of the neural network $v\in [1,50] $,
+    execute 
+  ```
+  $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v clones
+  ```
+* to make model B predictions for electron energy $E$ (in GeVs), scattering angle $\theta$ (in degrees), and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$  (in GeVs), number of points $p$, number of variants of the neural network $v\in [1,50] $,
+    execute 
+  ```
+  $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v dropout
+  ```
+* when one executes  `main.py clones` or `main.py dropout` it corresponds to $E=0.68$ GeV, $theta=60^{\circ}$, $\omega \in [0,0.68]$ GeV, number of points $p=100$, number of variants of the neural network $v=50$
 
-* when one executes ` main.py` it corresponds to xxxx
+* the output is in the format .txt file with three columns: energy transfer value, mean value and standard deviation of the $v$ variants of the neural network 
 
-* the model's outpu is in the format: xxx ??? ???
 
 ## Citation
     @article{Kowal:2023,
