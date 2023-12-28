@@ -16,7 +16,7 @@ We introduce the deep neural network fits to inclusive electron-carbon scatterin
 
 To run the model:
 * Install numpy, jax and flax packages
-* to make model A predictions for electron energy $E$ [GeV], scattering angle $\theta$ [degree], and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$ [GeV], number of points $p$, number of variants of the neural network $v\in [1,50] $,
+* to make model A predictions for electron energy $E$ [GeV], scattering angle $\theta$ [degree], and a range of the energy transfer $\omega \in[\omega_1,\omega_2]$ [GeV], number of points $p$, number of variants of the neural network $v\in [1,50]$,
     execute 
   ```
   $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v clones
@@ -26,7 +26,7 @@ To run the model:
   ```
   $ python main.py energy=E  theta=θ  min=ω₁ max=ω₂ nop=p nov=v dropout
   ```
-* when one executes  `main.py clones` or `main.py dropout` it corresponds to $E=0.68$ GeV, $\theta=60^{\circ}$, $\omega \in [0,0.68]$ GeV, number of points $p=100$, number of variants of the neural network $v=50$
+* when one executes  `python main.py clones` or `python main.py dropout` it corresponds to $E=0.68$ GeV, $\theta=60^{\circ}$, $\omega \in [0,0.68]$ GeV, number of points $p=100$, number of variants of the neural network $v=50$
 
 * the output is saved in the directory Results_Clones/Results_Dropout directory respectively.
 * the output is in the format .txt file with three columns:
