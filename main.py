@@ -87,7 +87,7 @@ def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir
 	output_file_name="DropoutModel_energy="+str(energy)+"theta="+str(theta)+"dropout="+str(drop)+"nov"+str(number_of_versions)
 	output_file_name= output_file_name.replace(".", "_").lower() 
 	full_array = np.stack([energy_transfer_array, mean_array, std_array], axis=1)
-	np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean preduction\std dev", comments='')
+	np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean prediction\std dev", comments='')
  
 
 def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, energy_transfer, number_of_points):  
@@ -141,7 +141,7 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
 	output_file_name="ClonesModel_energy="+str(energy)+"theta="+str(theta)+"nov"+str(number_of_versions)
 	output_file_name= output_file_name.replace(".", "_").lower()
 	full_array = np.stack([energy_transfer_array, mean_array, std_array], axis=1)
-	np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean preduction\std dev", comments='')
+	np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean prediction\std dev", comments='')
 
 if __name__ == '__main__':
 
@@ -164,7 +164,7 @@ if __name__ == '__main__':
 		if arg[1][:4]=="max=":
 			energy_transfer_max=float(arg[1][4:])   
 		if arg[1][:4]=="nop=":
-			number_of_points=float(arg[1][4:])   
+			number_of_points=max(2,int(arg[1][4:]))
 
 
 	parent_dir = str(Path(__file__).parent)+"/"  
