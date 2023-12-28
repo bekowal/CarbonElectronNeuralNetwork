@@ -3,7 +3,7 @@
 
 see [arxiv paper](https://arxiv.org/abs/2312.xxxxx)
 
-## Info
+## Introduction
 
 We introduce the deep neural network fits to inclusive electron-carbon scattering data. There are two models available, A and B.
 
