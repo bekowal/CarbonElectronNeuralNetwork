@@ -40,7 +40,7 @@ class TrainState(train_state.TrainState):
 
 
 
-def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir, energy, theta, energy_transfer, plotpoints): 
+def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir, energy, theta, energy_transfer, number_of_points): 
 
     files=os.listdir(ckpt_dir)
     restored_state_dict=checkpoints.restore_checkpoint(ckpt_dir=ckpt_dir+"/"+files[-1], target=None) 
@@ -71,7 +71,7 @@ def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir
 
     f, ax = plt.subplots(figsize=(sizew, sizeh)) 
 
-    energy_transfer_array=np.arange(minw,maxw+(maxw-minw)/(plotpoints-1),(maxw-minw)/(plotpoints-1))[0:plotpoints] 
+    energy_transfer_array=np.arange(minw,maxw+(maxw-minw)/(number_of_points-1),(maxw-minw)/(number_of_points-1))[0:number_of_points] 
     scaling_factor=Scaling(energy,theta)
     print("Prediction starts")
     xarray= np.array([ [energy, j, theta,  np.cos(theta/180.0*np.pi),  2*energy*(energy-j)*(1 - np.cos(theta/180.0*np.pi)) ] for j in energy_transfer_array])
@@ -80,10 +80,10 @@ def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir
         xarray[s], 
         training=False, 
         isdropout=True, 
-        rngs={'dropout': dropout_key_array[t]}) for t in range(number_of_versions)] for s in range(plotpoints)] 
+        rngs={'dropout': dropout_key_array[t]}) for t in range(number_of_versions)] for s in range(number_of_points)] 
     predarray=np.multiply(predarray, scaling_factor)
 
-    for s in range(plotpoints):  
+    for s in range(number_of_points):  
         mean= np.mean( np.array([predarray[s][t][0] for t in range(number_of_versions)])) 
         stddev= np.sqrt(np.var(np.array([predarray[s][t][0] for t in range(number_of_versions)]))) 
         mean_array.append(mean)
@@ -114,13 +114,12 @@ def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir
     np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean preduction\std dev", comments='')
  
 
-def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, energy_transfer, plotpoints):  
+def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, energy_transfer, number_of_points):  
 
     files=os.listdir(ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_0")
     restored_state_dict=checkpoints.restore_checkpoint(ckpt_dir=ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_0/"+files[-1], target=None)  
     dim=restored_state_dict['config']['dimensions']
     OutputSize= dim[1]
-    drop=0.0
   
     sizew=8
     sizeh=6
@@ -131,9 +130,9 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
             nn.relu,nn.relu,nn.relu,nn.relu,nn.relu,
             nn.sigmoid], 
         dim_output=OutputSize, 
-        dropout_rate=drop)  
+        dropout_rate=0.0)  
     
-    dir_name="Results_Clones_"+str(drop)  
+    dir_name="Results_Clones  
     resulsdir = os.path.join(parent_dir, dir_name)
     if not os.path.exists(resulsdir):
         os.makedirs(resulsdir)    
@@ -150,8 +149,8 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
         files=os.listdir(ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_"+str(h))
         cp=checkpoints.restore_checkpoint(ckpt_dir=ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_"+str(h)+"/"+files[-1], target=None) 
         restored_state_array.append(cp['state'])
-    
-    energy_transfer_array=np.arange(minw,maxw+(maxw-minw)/(plotpoints-1),(maxw-minw)/(plotpoints-1))[0:plotpoints] 
+
+    energy_transfer_array=np.arange(minw,maxw+(maxw-minw)/(number_of_points-1),(maxw-minw)/(number_of_points-1))[0:number_of_points] 
     xarray= np.array([ [energy, j, theta,  np.cos(theta/180.0*np.pi),  2*energy*(energy-j)*(1 - np.cos(theta/180.0*np.pi)) ] for j in energy_transfer_array])
     scaling_factor=Scaling(energy,theta)    
     print("Prediction starts")
@@ -160,10 +159,10 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
         {'params': restored_state_array[t]['params'], 'batch_stats': restored_state_array[t]['batch_stats']}, 
         xarray[s], 
         training=False, 
-        isdropout=False) for t in range(number_of_versions)] for s in range(plotpoints)] 
+        isdropout=False) for t in range(number_of_versions)] for s in range(number_of_points)] 
     predarray=np.multiply(predarray, scaling_factor)
 
-    for s in range(plotpoints):  
+    for s in range(number_of_points):  
         mean= np.mean( np.array([predarray[s][t][0] for t in range(number_of_versions)])) 
         stddev= np.sqrt(np.var(np.array([predarray[s][t][0] for t in range(number_of_versions)]))) 
         mean_array.append(mean)
@@ -201,7 +200,7 @@ if __name__ == '__main__':
     theta=60.0
     energy_transfer_min=0.0
     energy_transfer_max=energy
-    plotpoints=100
+    number_of_points=100
 
     for arg in enumerate(sys.argv):        
         if arg[1][:4]=="nov=":
@@ -214,8 +213,8 @@ if __name__ == '__main__':
             energy_transfer_min=float(arg[1][4:])     
         if arg[1][:4]=="max=":
             energy_transfer_max=float(arg[1][4:])   
-        if arg[1][:3]=="pp=":
-            plotpoints=float(arg[1][3:])   
+        if arg[1][:4]=="nop=":
+            number_of_points=float(arg[1][4:])   
  
 
 
@@ -229,11 +228,11 @@ if __name__ == '__main__':
             main_key, *dropout_key_array = jax.random.split(key=rng, num=(number_of_versions+1))  
             dir_name='dropout_model' 
             path = os.path.join(parent_dir, dir_name)
-            GenerateDropout(dim_layers=layers_dims, number_of_versions=number_of_versions, dropout_key_array=dropout_key_array, ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], plotpoints= plotpoints)
+            GenerateDropout(dim_layers=layers_dims, number_of_versions=number_of_versions, dropout_key_array=dropout_key_array, ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], number_of_points= number_of_points)
 
         if arg[1][:6]=="clones": 
             dir_name='clones_model' 
             path = os.path.join(parent_dir, dir_name)
-            GenerateClones(dim_layers=layers_dims, number_of_versions=number_of_versions,  ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], plotpoints= plotpoints)
+            GenerateClones(dim_layers=layers_dims, number_of_versions=number_of_versions,  ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], number_of_points= number_of_points)
 
 
