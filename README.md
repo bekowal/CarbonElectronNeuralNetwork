@@ -1,11 +1,10 @@
 -----
 # Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods
------
 
 
 ## Info
----
-We introduce the deep neural networks fits to inclusive electron-carbon scattering data. There are two models available A and B.
+
+We introduce the deep neural network fits to inclusive electron-carbon scattering data. There are two models available, A and B.
 
 * Model A:
     It is based on an ensemble of 50 neural networks, which fit clone datasets.
@@ -13,14 +12,13 @@ We introduce the deep neural networks fits to inclusive electron-carbon scatteri
     It is a single neural network with dropout layers. The Monte Carlo dropout mechanism is used to make predictions.
 
 ## Making Predictions
----
+
 To run the model:
 * Install jax package ()
-* to make model A predictions for elecgtron Energy E, scattering angle theta and ..
+* to make model A predictions for electron Energy E, scattering angle theta, and.
     run `xxx yyy zzz`
-* to make model B predictions for elecgtron Energy E, scattering angle theta and ..
+* to make model B predictions for electron Energy E, scattering angle theta, and.
     run `xxx yyy zzz`
-
 
 ## Cite
     @article{Kowal:2023,
