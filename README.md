@@ -21,7 +21,9 @@ To run the model:
 * to make model B predictions for electron energy E, scattering angle theta, and zzz.
     execute `main.py yyy zzz`
 
-when one executes ` main.py` it corresponds to xxxx
+* when one executes ` main.py` it corresponds to xxxx
+
+* the model outpu is in the format: xxx ??? ???
 
 ## Cite
     @article{Kowal:2023,
