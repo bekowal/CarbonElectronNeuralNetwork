@@ -23,7 +23,7 @@ To run the model:
 
 * when one executes ` main.py` it corresponds to xxxx
 
-* the model outpu is in the format: xxx ??? ???
+* the model's outpu is in the format: xxx ??? ???
 
 ## Cite
     @article{Kowal:2023,
