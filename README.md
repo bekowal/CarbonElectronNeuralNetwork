@@ -1,7 +1,7 @@
 -----
 # Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods
 
-* [arXiv:2312.xxxxx](https://arxiv.org/abs/2312.xxxxx)
+* [arXiv:2312.17298](http://arxiv.org/abs/2312.17298)
 
 ## Introduction
 
@@ -39,9 +39,9 @@ To run the model:
     @article{Kowal:2023,
     author = "Kowal, Beata E. and Graczyk, Krzysztof M. and Ankowski, Artur M. and Banerjee, Rwik Dharmapal and Prasad, Hemant and Sobczyk, Jan T.",
     title = "{Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods}",
-    eprint = "2312.xxxxx",
+    eprint = "2312.17298",
     archivePrefix = "arXiv",
-    primaryClass = "nucl-ex",
+    primaryClass = "hep-ph",
     month = "12",
     year = "2023"}
 
