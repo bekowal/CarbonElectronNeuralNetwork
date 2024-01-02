@@ -47,3 +47,7 @@ To run the model:
 
 ## Supplemental Material
 * [suplemental_material.pdf](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
+
+## ACKNOWLEDGMENTS
+
+Work supported by the National Science Centre under grant UMO-2021/41/B/ST2/ 02778.
