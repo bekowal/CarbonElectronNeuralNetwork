@@ -39,6 +39,9 @@ class TrainState(train_state.TrainState):
 
 
 
+
+
+
 def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir, energy, theta, energy_transfer, number_of_points): 
 
 	files=os.listdir(ckpt_dir)
@@ -90,7 +93,10 @@ def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir
 	np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean prediction\std dev", comments='')
  
 
-def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, energy_transfer, number_of_points):  
+
+
+
+def GenerateBootstrap( dim_layers, number_of_versions, ckpt_dir,  energy, theta, energy_transfer, number_of_points):  
 
 	files=os.listdir(ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_0")
 	restored_state_dict=checkpoints.restore_checkpoint(ckpt_dir=ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_0/"+files[-1], target=None)  
@@ -105,7 +111,7 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
 		dim_output=OutputSize, 
 		dropout_rate=0.0)  
 	
-	dir_name="Results_Clones"  
+	dir_name="Results_Bootstrap"  
 	resulsdir = os.path.join(parent_dir, dir_name)
 	if not os.path.exists(resulsdir):
 		os.makedirs(resulsdir)	
@@ -138,7 +144,7 @@ def GenerateClones( dim_layers, number_of_versions, ckpt_dir,  energy, theta, en
 		mean_array.append(mean)
 		std_array.append(stddev)
 
-	output_file_name="ClonesModel_energy="+str(energy)+"theta="+str(theta)+"nov"+str(number_of_versions)
+	output_file_name="BootstrapModel_energy="+str(energy)+"theta="+str(theta)+"nov"+str(number_of_versions)
 	output_file_name= output_file_name.replace(".", "_").lower()
 	full_array = np.stack([energy_transfer_array, mean_array, std_array], axis=1)
 	np.savetxt(os.path.join(resulsdir,output_file_name+".txt"), full_array, delimiter="\t", header="energy transfer\mean prediction\std dev", comments='')
@@ -186,9 +192,9 @@ if __name__ == '__main__':
 			path = os.path.join(parent_dir, dir_name)
 			GenerateDropout(dim_layers=layers_dims, number_of_versions=number_of_versions, dropout_key_array=dropout_key_array, ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], number_of_points= number_of_points)
 
-		if arg[1][:6]=="clones": 
-			dir_name='clones_model' 
+		if arg[1][:9]=="bootstrap": 
+			dir_name='bootstrap_model' 
 			number_of_versions=min(50,number_of_versions)
 			print("Number of versions: {}".format(number_of_versions))
 			path = os.path.join(parent_dir, dir_name)
-			GenerateClones(dim_layers=layers_dims, number_of_versions=number_of_versions,  ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], number_of_points= number_of_points)
+			GenerateBootstrap(dim_layers=layers_dims, number_of_versions=number_of_versions,  ckpt_dir=path, energy=energy, theta=theta, energy_transfer=[energy_transfer_min,energy_transfer_max], number_of_points= number_of_points)
