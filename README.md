@@ -36,14 +36,18 @@ To run the model:
 
 
 ## Citation
-    @article{Kowal:2023,
+    @article{Kowal:2023dcq,
     author = "Kowal, Beata E. and Graczyk, Krzysztof M. and Ankowski, Artur M. and Banerjee, Rwik Dharmapal and Prasad, Hemant and Sobczyk, Jan T.",
     title = "{Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods}",
     eprint = "2312.17298",
     archivePrefix = "arXiv",
     primaryClass = "hep-ph",
-    month = "12",
-    year = "2023"}
+    doi = "10.1103/PhysRevC.110.025501",
+    journal = "Phys. Rev. C",
+    volume = "110",
+    number = "2",
+    pages = "025501",
+    year = "2024"}
 
 ## Supplemental Material
 * [suplemental_material.pdf](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
