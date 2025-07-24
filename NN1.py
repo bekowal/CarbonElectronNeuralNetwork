@@ -51,7 +51,7 @@ def GenerateDropout( dim_layers, number_of_versions, dropout_key_array, ckpt_dir
 	OutputSize= dim[1]
 	drop=restored_state_dict['dropout']  
 	parent_dir =  Path(__file__).parent 
-	
+
 	model = MyNeuralNetwork(
 		dim_hidden=dim_layers,  
 		act_hidden=[nn.relu,nn.relu,nn.relu,nn.relu,nn.relu,  
@@ -103,6 +103,7 @@ def GenerateBootstrap( dim_layers, number_of_versions, ckpt_dir,  energy, theta,
 	restored_state_dict=checkpoints.restore_checkpoint(ckpt_dir=ckpt_dir+"/"+"clones_jax_train_drop=0.0_ver_0/"+files[-1], target=None)  
 	dim=restored_state_dict['config']['dimensions']
 	OutputSize= dim[1]
+	parent_dir =  Path(__file__).parent 
 
 	model = MyNeuralNetwork(
 		dim_hidden=dim_layers,  
