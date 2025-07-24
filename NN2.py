@@ -18,7 +18,7 @@ def GenerateBootstrap(number_of_versions, ckpt_dir,  energy, theta, energy_trans
 
 	state_list=[]  
 	parent_dir =  Path(__file__).parent 
-	dir_name="Results_Bootstrap_Keras"  
+	dir_name="Results_Bootstrap"  
 	resulsdir = os.path.join(parent_dir, dir_name)
 	if not os.path.exists(resulsdir):
 		os.makedirs(resulsdir)	
@@ -43,7 +43,7 @@ def GenerateBootstrap(number_of_versions, ckpt_dir,  energy, theta, energy_trans
 		stddev= np.sqrt(np.var(np.array([predarray[t][s] for t in range(number_of_versions)]))) 
 		mean_array.append(mean)
 		std_array.append(stddev)
-	output_file_name="BootstrapModel2_energy="+str(energy)+"theta="+str(theta)+"nov"+str(number_of_versions)
+	output_file_name="BootstrapModel_NewFit_energy="+str(energy)+"theta="+str(theta)+"nov"+str(number_of_versions)
 	output_file_name= output_file_name.replace(".", "_").lower()
 	full_array = np.stack([energy_transfer_array, mean_array, std_array], axis=1)
 	print(full_array)
