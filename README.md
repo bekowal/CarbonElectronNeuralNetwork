@@ -5,7 +5,7 @@
 
 ## Introduction
 
-We introduce the deep neural network fits to inclusive electron-carbon scattering data. There are two models available, A and B.
+We introduce the deep neural network fits to inclusive electron-carbon scattering data. There are three models available, A, B and C.
 
 * Model A (Bootstrap):
     It is based on an ensemble of 50 neural networks, which fit clone datasets.
