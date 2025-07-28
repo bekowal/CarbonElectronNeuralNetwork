@@ -58,7 +58,7 @@ To run the model:
     year = "2024"}
 
 ## Supplemental Material
-* [suplemental_material.pdf](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
+* [suplemental_material to Phys.Rev.C 110 (2024) 2, 025501](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
 
 ## ACKNOWLEDGMENTS
 
