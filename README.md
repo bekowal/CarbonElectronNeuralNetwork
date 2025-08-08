@@ -2,7 +2,7 @@
 # Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods
 
 * [Phys.Rev.C 110 (2024) 2, 025501](https://journals.aps.org/prc/abstract/10.1103/PhysRevC.110.025501), [arXiv:2312.17298](http://arxiv.org/abs/2312.17298) **Models A and B**
-* [arXiv:2508.xxxxx](http://arxiv.org/abs/2508.xxxxx) **Model C --  the most recent**
+* [2508.00996](https://arxiv.org/abs/2508.00996) **Model C --  the most recent**
 
 ## Introduction
 
@@ -56,6 +56,16 @@ To run the model:
     number = "2",
     pages = "025501",
     year = "2024"}
+
+    @misc{kowal2025reoptimizationdeepneuralnetwork,
+    title={Re-optimization of a deep neural network model for electron-carbon scattering using new experimental data}, 
+    author={Beata E. Kowal and Krzysztof M. Graczyk and Artur M. Ankowski and Rwik Dharmapal Banerjee and Jose L. Bonilla and Hemant Prasad and Jan T. Sobczyk},
+    year={2025},
+    eprint={2508.00996},
+    archivePrefix={arXiv},
+    primaryClass={hep-ph},
+    url={https://arxiv.org/abs/2508.00996}}
+
 
 ## Supplemental Material
 * [suplemental_material to Phys.Rev.C 110 (2024) 2, 025501](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
