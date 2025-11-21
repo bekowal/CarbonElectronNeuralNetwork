@@ -2,7 +2,7 @@
 # Empirical fits to inclusive electron-carbon scattering data obtained by deep-learning methods
 
 * [Phys.Rev.C 110 (2024) 2, 025501](https://journals.aps.org/prc/abstract/10.1103/PhysRevC.110.025501), [arXiv:2312.17298](http://arxiv.org/abs/2312.17298) **Models A and B**
-* [arXiv:2508.00996](https://arxiv.org/abs/2508.00996) **Model C --  the most recent**
+* [Phys.Rev.C 112 (2025) 5, 5](https://journals.aps.org/prc/abstract/10.1103/ydvc-2567) **Model C - the most recent**
 
 ## Introduction
 
@@ -57,15 +57,18 @@ To run the model:
     pages = "025501",
     year = "2024"}
 
-    @misc{kowal2025reoptimizationdeepneuralnetwork,
-    title={Re-optimization of a deep neural network model for electron-carbon scattering using new experimental data}, 
-    author={Beata E. Kowal and Krzysztof M. Graczyk and Artur M. Ankowski and Rwik Dharmapal Banerjee and Jose L. Bonilla and Hemant Prasad and Jan T. Sobczyk},
-    year={2025},
-    eprint={2508.00996},
-    archivePrefix={arXiv},
-    primaryClass={hep-ph},
-    url={https://arxiv.org/abs/2508.00996}}
-
+    @article{Kowal:2025qkk,
+    author = "Kowal, Beata E. and Graczyk, Krzysztof M. and Ankowski, Artur M. and Banerjee, Rwik Dharmapal and Bonilla, Jose L. and Prasad, Hemant and Sobczyk, Jan T.",
+    title = "{Re-optimization of a deep neural network model for electron-carbon scattering using new experimental data}",
+    eprint = "2508.00996",
+    archivePrefix = "arXiv",
+    primaryClass = "hep-ph",
+    doi = "10.1103/ydvc-2567",
+    journal = "Phys. Rev. C",
+    volume = "112",
+    number = "5",
+    pages = "055504",
+    year = "2025"}
 
 ## Supplemental Material
 * [suplemental_material to Phys.Rev.C 110 (2024) 2, 025501](https://github.com/bekowal/CarbonElectronNeuralNetwork/blob/main/supplemantal_material.pdf)
